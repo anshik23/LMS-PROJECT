@@ -1,0 +1,81 @@
+/* =========================
+   WELCOME PAGE
+   Import in Welcome.tsx:
+   import "../styles/welcome.css";
+========================= */
+
+.welcome-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  gap: 80px;
+}
+
+.welcome-left {
+  flex: 1;
+}
+
+.welcome-left h1 {
+  text-align: left;
+  font-size: 46px;
+  line-height: 1.15;
+  max-width: 550px;
+  margin-bottom: 18px;
+}
+
+.welcome-left p {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.welcome-card {
+  width: 350px;
+  background: var(--surface);
+  padding: 38px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.welcome-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.welcome-card p {
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.welcome-buttons button {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .welcome-page {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 35px;
+  }
+
+  .welcome-left h1 {
+    text-align: center;
+    font-size: 34px;
+  }
+
+  .welcome-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}

@@ -1,0 +1,223 @@
+/* =========================================
+   GLOBAL STYLES
+   Tokens, reset and components shared by
+   every page. Page-specific styles live in
+   their own file (welcome.css, history.css,
+   video-player.css, ...).
+   To change the look of the whole site,
+   edit the colors in :root below.
+========================================= */
+
+:root {
+  --canvas: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #1b2430;
+  --muted: #5b6675;
+  --line: #e1e5ea;
+
+  --primary: #2b5a8c;
+  --primary-dark: #214a73;
+  --primary-soft: #e8f0f8;
+
+  --neutral-soft: #eef1f4;
+  --neutral-soft-hover: #e1e6eb;
+
+  --danger: #b3261e;
+
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(20, 30, 45, 0.08), 0 8px 24px rgba(20, 30, 45, 0.06);
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--canvas);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Layout */
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  padding: 28px 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* Text */
+
+h1 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+h2 {
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+
+p {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Forms */
+
+form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #c9d0d8;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* Buttons */
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background: var(--neutral-soft);
+  color: var(--ink);
+}
+
+.secondary-button:hover {
+  background: var(--neutral-soft-hover);
+}
+
+.text-button {
+  background: transparent;
+  color: var(--primary);
+  padding: 4px;
+}
+
+.text-button:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+/* Messages */
+
+.message {
+  margin-top: 12px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 13px;
+}
+
+/* CAPTCHA */
+
+.captcha-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.captcha-code {
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 6px 9px;
+  background: var(--neutral-soft);
+  border-radius: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 15px;
+  }
+
+  .card {
+    max-width: 350px;
+    padding: 24px;
+  }
+
+  .card button {
+    width: 100%;
+  }
+}

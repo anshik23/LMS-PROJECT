@@ -1,0 +1,378 @@
+/* =========================
+   VIDEO PLAYER
+   Import in VideoPlayer.tsx:
+   import "../styles/video-player.css";
+========================= */
+
+.video-player-page {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* Theater mode: the page element itself has this class */
+.video-player-page.theater-mode {
+  max-width: 1200px;
+}
+
+.video-player-back {
+  background: transparent;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.video-player-back:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.video-player-title {
+  text-align: left;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.video-player-description {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.video-progress-badge {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Player */
+
+.video-player-wrapper {
+  position: relative;
+  background: #10151c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-player-wrapper iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.video-frame {
+  background: #000;
+}
+
+/* Controls */
+
+.video-controls {
+  position: relative;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  padding: 14px 18px 16px;
+}
+
+.video-progress {
+  width: 100%;
+  height: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--line);
+  border-radius: 10px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.video-progress:focus {
+  box-shadow: none;
+}
+
+.video-progress::-webkit-slider-thumb,
+.video-volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(20, 30, 45, 0.3);
+  cursor: pointer;
+}
+
+.video-progress::-moz-range-thumb,
+.video-volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.video-controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-control-button,
+.video-extra-button {
+  height: 36px;
+  border-radius: 8px;
+  background: var(--neutral-soft);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 15px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.video-control-button {
+  width: 36px;
+}
+
+.video-extra-button {
+  min-width: 36px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.video-control-button:hover,
+.video-extra-button:hover {
+  background: var(--neutral-soft-hover);
+}
+
+.video-control-button.active,
+.video-extra-button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.video-play-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 17px;
+}
+
+.video-play-button:hover {
+  background: var(--primary-dark);
+}
+
+.skip-number {
+  font-size: 8px;
+  font-weight: 700;
+  margin-left: -2px;
+}
+
+.video-time {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+  margin: 0 0 0 4px;
+}
+
+.video-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.video-volume-slider {
+  width: 80px;
+  height: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--line);
+  border-radius: 10px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.video-volume-slider:focus {
+  box-shadow: none;
+}
+
+/* Popup menus (speed, settings) */
+
+.video-menu-wrapper {
+  position: relative;
+}
+
+.video-popup {
+  position: absolute;
+  bottom: 48px;
+  right: 0;
+  min-width: 160px;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  z-index: 20;
+}
+
+.video-popup p {
+  margin: 4px 8px 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.speed-menu button,
+.settings-menu button {
+  width: 100%;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--ink);
+  text-align: left;
+  font-size: 13px;
+}
+
+.speed-menu button:hover,
+.settings-menu button:hover,
+.speed-menu button.selected {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.settings-menu {
+  min-width: 210px;
+}
+
+.settings-menu button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-menu strong {
+  color: var(--primary);
+  font-size: 11px;
+}
+
+/* Below the player */
+
+.video-bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.video-lesson {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.video-bottom-info > span {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Fullscreen */
+
+.video-player-wrapper:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-player-wrapper:fullscreen .video-frame {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player-wrapper:fullscreen .video-frame > div,
+.video-player-wrapper:fullscreen iframe {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.video-player-wrapper:fullscreen .video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  .video-player-page {
+    padding: 0 14px;
+    margin: 25px auto;
+  }
+
+  .video-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .video-player-title {
+    font-size: 22px;
+  }
+
+  .video-player-wrapper iframe {
+    height: 320px;
+  }
+
+  .video-controls-row {
+    gap: 7px;
+  }
+
+  .video-control-button,
+  .video-extra-button {
+    height: 34px;
+    min-width: 34px;
+  }
+
+  .video-control-button {
+    width: 34px;
+  }
+
+  .video-volume-slider {
+    width: 60px;
+  }
+
+  .video-time {
+    font-size: 11px;
+  }
+}

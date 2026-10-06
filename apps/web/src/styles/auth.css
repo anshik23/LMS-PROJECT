@@ -1,0 +1,59 @@
+/* =========================
+   AUTH EXTRAS
+   Used by Register and ResetPassword on top of login.css
+========================= */
+
+/* Two-column form grid (Register) */
+
+.register-box {
+  max-width: 560px;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+}
+
+.auth-full {
+  grid-column: 1 / -1;
+}
+
+/* Long form: start at the top and keep the side panel in view */
+
+.register-page .login-main {
+  align-items: flex-start;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.register-page .login-aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: start;
+}
+
+/* Success message (errors use .login-error from login.css) */
+
+.login-success {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #e8f3ec;
+  color: #1f6b3b;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .register-page .login-aside {
+    position: static;
+    height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-grid {
+    grid-template-columns: 1fr;
+  }
+}
